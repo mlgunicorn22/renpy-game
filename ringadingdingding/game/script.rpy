@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define y = Character("You")
 
 
 # The game starts here.
@@ -14,19 +14,31 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    image poor temp = Solid("#00aa00", xysize=(250, 600))
+    image corrupt temp = Solid("#ff0000", xysize=(250, 600))
+    image business temp = Solid("#0000aa", xysize=(250, 600))
+
+    scene black
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show poor temp with zoomin:
+        xalign 0.15
+        yalign 1.0
+    
+    show corrupt temp with zoomin:
+        xalign 0.5
+        yalign 1.0
+
+    show business temp with zoomin:
+        xalign 0.85
+        yalign 1.0
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    y "Welcome to the business world!"
 
     # This ends the game.
 
