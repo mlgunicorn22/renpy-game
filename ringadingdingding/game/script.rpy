@@ -41,6 +41,9 @@ image daniel = "images/daniel.png"
 image arthur = "images/arthur.png"
 image naomi = "images/naomi.png"
 
+image corruption symbol = Transform("corruption symbol.png", zoom=0.1)
+image stock symbol = Transform("stock symbol.png", zoom=0.35)
+
 # ---------------------------------------------------------
 # PROFILE CARD UI
 # ---------------------------------------------------------
@@ -85,12 +88,12 @@ label start:
     show screen stock_meter
 
     show corruption symbol onlayer screens zorder 20:
-        xalign 0.99
+        xalign 0.995
         yalign 0.81
     
     show stock symbol onlayer screens zorder 20:
-        xalign 0.99
-        yalign 0.81
+        xalign 0.95
+        yalign 0.83
 
     play music "audio/opening.mp3"
 
