@@ -1619,3 +1619,49 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+screen corruption_meter():
+    sensitive False
+    zorder 10
+    frame:
+        xalign 0.98
+        yalign 0.5
+        xsize 30
+        ysize 620
+        background Frame("#330000")
+    
+        vbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 5
+            bar:
+                value VariableValue("corruption", max=100, min=0)
+                range 100
+                xsize 20
+                ysize 610
+                right_bar Frame("#dd0000")
+                left_bar Frame("#00000000")
+                bar_vertical True
+
+screen stock_meter():
+    sensitive False
+    zorder 10
+    frame:
+        xalign 0.93
+        yalign 0.5
+        xsize 30
+        ysize 620
+        background Frame("#002200")
+    
+        vbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 5
+            bar:
+                value VariableValue("stock", max=100, min=0)
+                range 100
+                xsize 20
+                ysize 610
+                right_bar Frame("#00dd00")
+                left_bar Frame("#00000000")
+                bar_vertical True
