@@ -28,18 +28,31 @@ define naomi = Character("Dr. Naomi Bell", color="#d9b3ff")
 # IMAGES
 # ---------------------------------------------------------
 
-image bg funeral = "images/funeral.jpg"
-image bg lobby = "images/lobby.jpg"
-image bg office = "images/office.jpg"
-image bg executives = "images/executives.jpg"
-image bg dinner = "images/dinner.jpg"
+# image bg funeral = "images/funeral.jpg"
+# image bg lobby = "images/lobby.jpg"
+# image bg office = "images/office.jpg"
+# image bg executives = "images/executives.jpg"
+# image bg dinner = "images/dinner.jpg"
 
-image clara = "images/clara.png"
-image marcus = "images/marcus.png"
-image victoria = "images/victoria.png"
-image daniel = "images/daniel.png"
-image arthur = "images/arthur.png"
-image naomi = "images/naomi.png"
+image bg funeral = Placeholder("bg")
+image bg lobby = Placeholder("bg")
+image bg office = Placeholder("bg")
+image bg executives = Placeholder("bg")
+image bg dinner = Placeholder("bg")
+
+# image clara = "images/clara.png"
+# image marcus = "images/marcus.png"
+# image victoria = "images/victoria.png"
+# image daniel = "images/daniel.png"
+# image arthur = "images/arthur.png"
+# image naomi = "images/naomi.png"
+
+image clara = Placeholder("girl")
+image marcus = Placeholder("boy")
+image victoria = Placeholder("girl")
+image daniel = Placeholder("boy")
+image arthur = Placeholder("boy")
+image naomi = Placeholder("girl")
 
 image corruption symbol = Transform("corruption symbol.png", zoom=0.1)
 image stock symbol = Transform("stock symbol.png", zoom=0.35)
