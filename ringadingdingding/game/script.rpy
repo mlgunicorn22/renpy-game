@@ -37,20 +37,18 @@ image bg office = Placeholder("bg")
 image bg executives = Placeholder("bg")
 image bg dinner = Placeholder("bg")
 
-# image clara = "images/clara.png"
-# image marcus = "images/marcus.png"
+image clara = "images/clara.png"
+image marcus = "images/marcus.png"
 # image victoria = "images/victoria.png"
 # image daniel = "images/daniel.png"
 # image arthur = "images/arthur.png"
-# image naomi = "images/naomi.png"
+# image amelia = "images/amelia.png"
+image naomi = "images/naomi.png"
 
 image amelia = Placeholder("girl")
-image clara = Placeholder("girl")
-image marcus = Placeholder("boy")
 image victoria = Placeholder("girl")
 image daniel = Placeholder("boy")
 image arthur = Placeholder("boy")
-image naomi = Placeholder("girl")
 
 image corruption symbol = Transform("corruption symbol.png", zoom=0.1)
 image stock symbol = Transform("stock symbol.png", zoom=0.35)
