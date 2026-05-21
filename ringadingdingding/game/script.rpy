@@ -1,7 +1,4 @@
-﻿# =========================================================
-# CORPORATE EMPIRE GAME
-# script.rpy
-# =========================================================
+﻿#INHERITANCE
 
 # ---------------------------------------------------------
 # VARIABLES
@@ -15,7 +12,7 @@ default corruption = 50
 # ---------------------------------------------------------
 
 define p = Character("Player")
-define a = Character("Amelia", color="#c8c8ff")
+define a = Character("Amelia", color="#d67c7c", what_italic=True)
 
 define clara = Character("Clara Vane", color="#ffd7d7")
 define marcus = Character("Marcus Hale", color="#d7ffd7")
@@ -40,16 +37,20 @@ image bg office = Placeholder("bg")
 image bg executives = Placeholder("bg")
 image bg dinner = Placeholder("bg")
 
-image clara = "images/clara.png"
-image marcus = "images/marcus.png"
+# image clara = "images/clara.png"
+# image marcus = "images/marcus.png"
 # image victoria = "images/victoria.png"
 # image daniel = "images/daniel.png"
 # image arthur = "images/arthur.png"
-image naomi = "images/naomi.png"
+# image naomi = "images/naomi.png"
 
+image amelia = Placeholder("girl")
+image clara = Placeholder("girl")
+image marcus = Placeholder("boy")
 image victoria = Placeholder("girl")
 image daniel = Placeholder("boy")
 image arthur = Placeholder("boy")
+image naomi = Placeholder("girl")
 
 image corruption symbol = Transform("corruption symbol.png", zoom=0.1)
 image stock symbol = Transform("stock symbol.png", zoom=0.35)
@@ -117,8 +118,16 @@ label start:
     "Now he is dead."
     "And everything belongs to you."
 
-    a "The board is waiting for you."
-    a "Your first day as CEO begins now."
+    show amelia
+    with dissolve
+
+    a "The board is waiting for you..."
+    a "Let's get to work."
+
+    hide amelia
+    with dissolve
+
+    pause
 
     jump lobby_stage
 
@@ -131,7 +140,7 @@ label lobby_stage:
     scene bg lobby
     with dissolve
 
-    "The lobby gleams with polished marble and cold corporate perfection."
+    "The lobby gleams with polished black marble and cold, corporate perfection."
 
     jump clara_scene
 
@@ -154,11 +163,13 @@ label clara_scene:
 
     clara "Congratulations on becoming CEO."
 
-    clara "People here are nervous. Your father ruled with fear."
+    clara "I have a concern."
+
+    clara "People here are nervous. Your father ruled with fear. This is a perect time to fix that."
 
     menu:
 
-        "Increase Clara's salary":
+        "Allow Clara to bolster the HR Department, and give her a raise.":
             $ stock -= 3
             $ corruption -= 5
             clara "Thank you. That means more than you know."
@@ -173,6 +184,9 @@ label clara_scene:
 
     hide screen profile_card
     hide clara
+    with dissolve
+
+    pause
 
     jump marcus_scene
 
@@ -190,12 +204,14 @@ label marcus_scene:
         "Security Chief",
         "Efficient, intimidating, ruthless",
         "Elite",
-        "- Prevented a major security attack\n- Covered up workplace violence claims\n- Extremely loyal to executive leadership"
+        "- Prevented a major security attack\n- Covered up workplace violence claims\n- Extremely loyal to the company's executives"
     )
 
     marcus "Your father understood sacrifice."
 
     marcus "Weak leadership destroys companies."
+
+    marcus "We need a stronger hold on our employees."
 
     menu:
 
@@ -215,6 +231,9 @@ label marcus_scene:
 
     hide screen profile_card
     hide marcus
+    with dissolve
+
+    pause
 
     jump office_stage
 
@@ -245,31 +264,35 @@ label victoria_scene:
         "Chief Financial Officer",
         "Brilliant, manipulative, ambitious",
         "Exceptional",
-        "- Increased profits by 340 percent\n- Used illegal offshore tax structures\n- Outsourced factories tied to worker deaths"
+        "- Increased profits by 340 percent\n- Used offshore bank accounts as a tax loophole\n- Outsourced labor to foreign factories tied to worker deaths"
     )
 
-    victoria "Ethics are expensive."
-    victoria "Profit is measurable."
+    victoria "We can significantly boost shareholder profits if we outsource a significant portion our in-office work out of the country."
+    victoria "Ethics are expensive..."
+    victoria "But profit is measurable."
 
     menu:
 
-        "Support Victoria fully":
+        "Support Victoria's efforts fully":
             $ stock += 15
             $ corruption += 15
             victoria "Excellent decision."
 
-        "Launch an investigation":
+        "Launch a money laundering investiagtion over the offshore accounts.":
             $ stock -= 10
             $ corruption -= 12
             victoria "You're making dangerous enemies."
 
-        "Quietly monitor her":
+        "Quietly monitor her (do nothing)":
             $ stock += 5
             $ corruption += 3
-            victoria "Smart."
+            victoria "Fine."
 
     hide screen profile_card
     hide victoria
+    with dissolve
+
+    pause
 
     jump daniel_scene
 
@@ -291,6 +314,7 @@ label daniel_scene:
     )
 
     daniel "Employees are not numbers."
+    daniel "We need to do something about the low morale in the company."
 
     menu:
 
@@ -302,15 +326,24 @@ label daniel_scene:
         "Cut the programs":
             $ stock += 8
             $ corruption += 5
-            daniel "I expected better."
+            daniel "I expected better from you."
 
-        "Compromise":
+        "Find a compromise with Daniel":
             $ stock += 2
             $ corruption -= 2
             daniel "Fair enough."
 
     hide screen profile_card
     hide daniel
+    with dissolve
+
+    pause
+
+    a "You've dealt with everybody here so far."
+    a "Let's move on to the executive floor."
+
+    pause
+
 
     jump executive_stage
 
@@ -326,6 +359,8 @@ label executive_stage:
     "The executive floor feels quieter."
     "Sharper."
     "More dangerous."
+
+    pause
 
     jump arthur_scene
 
@@ -343,20 +378,23 @@ label arthur_scene:
         "Board Member",
         "Corrupt, charismatic, politically connected",
         "Extremely Profitable",
-        "- Secured billion-dollar deals\n- Bribed government officials\n- Close friend of your father"
+        "- Secured billion-dollar deals for the company\n- Bribed government officials\n- Close friend of your father"
     )
 
     arthur "Your father understood how the world really works."
+    arthur "We need to work together."
 
     menu:
 
         "Work with Arthur":
             $ stock += 12
             $ corruption += 14
+            arthur "You won't regret this."
 
-        "Expose Arthur":
+        "Expose Arthur's corruption.":
             $ stock -= 12
             $ corruption -= 15
+            arthur "You're going to regret this."
 
         "Sideline Arthur quietly":
             $ stock += 2
@@ -364,6 +402,9 @@ label arthur_scene:
 
     hide screen profile_card
     hide arthur
+    with dissolve
+
+    pause
 
     jump naomi_scene
 
@@ -384,12 +425,12 @@ label naomi_scene:
         "- Developed life-saving medication\n- Opposed extreme pricing plans"
     )
 
-    naomi "We can save millions of lives."
+    naomi "We can save millions of lives with our new medication."
     naomi "But the board wants a 60,000 percent markup."
 
     menu:
 
-        "Lower the medication price":
+        "Assert yourself over the board and refuse the markup":
             $ stock -= 15
             $ corruption -= 20
             naomi "Thank you."
@@ -399,19 +440,28 @@ label naomi_scene:
             $ corruption += 20
             naomi "People will die."
 
-        "Choose a compromise":
+        "Attempt to make a compromise":
             $ stock += 5
             $ corruption += 2
-            naomi "I hope that's enough."
+            naomi "We'll see if this works."
 
     hide screen profile_card
     hide naomi
+    with dissolve
+
+    pause
 
     jump dinner_stage
 
 # =========================================================
 # FINAL STAGE — DINNER
 # =========================================================
+
+    a "Our day is almost over."
+    a "All that's left is the celebratory dinner for you, the shiny new CEO."
+    a "They aren't really here for you. Do what you have to do."
+
+    pause
 
 label dinner_stage:
 
@@ -421,19 +471,26 @@ label dinner_stage:
     stop music
     play music "audio/dinner.mp3"
 
-    "The business elite gather around crystal glasses and whispered deals."
+    "{i}The business elite gather around crystal glasses and whispered deals.{/i}"
+    "{i}There are some familiar faces from the company, as well as others you have never seen before.{/i}"
+    "{i}As you enter, you feel the piercing gaze of the shareholders and investors.{/i}"
+
+    "{i}As the dinner progresses, you try to gauge the investor's feelings on the company's direction under its new CEO.{/i}"
+
+    pause
 
     if corruption >= 70:
-        "Investors praise your ruthless efficiency."
+        "The investors praise your ruthless efficiency."
         "Outside, protestors gather in the streets."
 
     elif corruption <= 30:
         "Some investors openly doubt your leadership."
-        "Employees throughout the company speak highly of you."
+        "Yet employees throughout the company speak highly of you."
 
     else:
         "The room feels uncertain."
-        "Neither trusted nor feared completely."
+        "You are neither trusted nor feared completely."
+        "The future of your company is just now beginning."
 
     jump final_ending
 
@@ -461,7 +518,7 @@ label final_ending:
 
         "The company dominated global markets."
         "Governments depended on your empire."
-        "People cursed your name while buying your products."
+        "People cursed your name while still buying your products."
 
     elif stock <= 20:
 
