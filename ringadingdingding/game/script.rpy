@@ -31,11 +31,11 @@ define naomi = Character("Dr. Naomi Bell", color="#d9b3ff")
 # image bg executives = "images/executives.jpg"
 # image bg dinner = "images/dinner.jpg"
 
-image bg funeral = Placeholder("bg")
-image bg lobby = Placeholder("bg")
-image bg office = Placeholder("bg")
-image bg executives = Placeholder("bg")
-image bg dinner = Placeholder("bg")
+image bg funeral = im.Scale("images/funeral.jpg", 1920, 1080)
+image bg lobby = im.Scale("images/lobby.jpg", 1920, 1080)
+image bg office = im.Scale("images/office.jpg", 1920, 1080)
+image bg executives = im.Scale("images/executives.jpg", 1920, 1080)
+image bg dinner = im.Scale("images/dinner.jpg", 1920, 1080)
 
 image clara = "images/clara.png"
 image marcus = "images/marcus.png"
